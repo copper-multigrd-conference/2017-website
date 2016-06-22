@@ -1,7 +1,0 @@
-[submodule "bootstrap-v4"]
-	path = bootstrap-v4
-	url = https://github.com/twbs/bootstrap.git
-	branch = v4-dev
-[submodule "font-awesome"]
-	path = font-awesome
-	url = https://github.com/FortAwesome/Font-Awesome.git
