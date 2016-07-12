@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 import os
 import time
 import yaml
@@ -28,8 +30,18 @@ with open("./data-common/previous-conferences.yml", "r") as inf:
 with open("./data-conf/committee.yml", "r") as inf:
     committee = yaml.load(inf)
 
+with open("./data-conf/deadlines.yml", "r") as inf:
+    deadlines = yaml.load(inf)
+
 for f in files:
-    html = env.get_template(f).render()
+    template_vars = {}
+    if f == '_index.html':
+        template_vars['name'] = 'index'  # for the nav bar
+        template_vars['student_deadline'] = 'January'
+        template_vars['abtract_deadline'] = 'January'
+        template_vars['deadlines'] = deadlines
+
+    html = env.get_template(f).render(template_vars)
     with open(os.path.join('./live/', f[1:]), 'w') as fout:
         fout.write(html)
 

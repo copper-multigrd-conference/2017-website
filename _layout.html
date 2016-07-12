@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Copper Mountain Conference on Iterative and Multigrid Methods">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./images/favicon.ico">
 
     <title>{% block title %}{% endblock %}</title>
@@ -18,14 +19,33 @@
     <link href="css/copper.css" rel="stylesheet">
   </head>
   <body>
+
+    <div class="container">
+      <nav class="navbar navbar-light bg-faded">
+        <div class="nav navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Registration</a>
+          <a class="nav-item nav-link" href="#">Sumbit an abstract</a>
+          <a class="nav-item nav-link" href="#">Submit a student paper</a>
+          <a class="nav-item nav-link" href="#">Lodging</a>
+          <a class="nav-item nav-link" href="#">About</a>
+        </div>
+      </nav>
+    </div>
+
     <div id="content">
       {% block content %}
       {% endblock %}
     </div>
-    <div id="footer">
+    <div id="footer" class="footer">
       {% block footer %}
       &copy; Copyright 2016 by <a href="http://lukeo.cs.illinois.edu/">Luke Olson</a>.
       {% endblock %}
     </div>
+
+  <!-- Bootstrap core JavaScript ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

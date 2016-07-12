@@ -1,8 +1,97 @@
 {% extends "_layout.html" %}
 {% block title %}Index{% endblock %}
 {% block content %}
-    <h1>header</h1>
-    <p class="important">
-      Welcome to my awesome homepage.
-    </p>
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="title text-center">18th Copper Mountain Conference
+          <span style = "display: block;"/>
+          <span style = "font-size: medium;">On</span>
+          <span style = "display: block;"/>
+          Iterative Methods
+        </h1>
+
+        <h2 class="title text-danger">March 26 - March 31, 2017</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card">
+            <!-- from https://commons.wikimedia.org/wiki/File:Copper_Trail.jpg retrieved on 20160711 -->
+            <img class="img-fluid img-rounded" src="./images/640px-Copper_Trail.jpg" alt="Copper Mountain">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="card card-info">
+            <div class="card-block">
+              <h4 class="card-title">Conference Deadlines</h4>
+              <div class="list-group">
+                {% for d in deadlines %}
+                  {%if d.title is not none %}
+                  <a class="list-group-item">{{d.title}}</a>
+                  {% endif %}
+                {% endfor %}
+                <li>Student Competition Papers: {{student_deadline}}</li>
+                <li>Student Competition Papers: TBA</li>
+                <li>Author Abstracts: January TBA, 2017</li>
+                <li>Early Registration: January TBA, 2017</li>
+                <li>Guaranteed Lodging: March TBA, 2017</li>
+                <li>Full Papers for Special Journal Issue: April TBA-June TBA, 2017</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="card card-block">
+              <p class="important">Organized by</p>
+              <a href="http://www.frontrangescicomp.com" class="card-link">Front Range Scientific Computations, Inc.</a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="card card-block">
+              <p class="important">Co-Organized by</p>
+              <a href="http://www.colorado.edu/" class="card-link">University of Colorado</a>
+              <br/>
+              <a href="http://www.llnl.gov/casc" class="card-link">The Center for Applied Scientific Computing, Lawrence Livermore National Laboratory</a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="card card-block">
+            <p class="important">Sponsored by</p>
+            <a class="card-link" href="http://www.sandia.gov"> Sandia</a>,
+            <a class="card-link" href="http://www.llnl.gov/casc">LLNL</a>,
+            <a class="card-link" href="http://www.ibm.com">IBM</a>,
+            <a class="card-link" href="http://www.doe.gov">DOE</a>,
+            <a class="card-link" href="http://www.lanl.gov">LANL</a>,
+            <a class="card-link" href="http://www.nsf.gov">NSF</a>,
+            <a class="card-link" href="http://www.anl.gov">Argonne</a>,
+            <a class="card-link" href="http://www.emory.edu/home/index.html">Emory</a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="card card-block">
+              <p class="important">In cooperation with</p>
+              <a href="http://www.siam.org/" class="card-link">SIAM</a>
+              (contact: Tom Manteuffel)
+              <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="card">
+            <img data-src="./" alt="Card image">
+            <p class="important">
+            Welcome.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}
