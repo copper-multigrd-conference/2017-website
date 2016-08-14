@@ -32,3 +32,8 @@ h2.title {
   height: 60px;
   background-color: #ffffff;
 }
+
+.copper-color {
+  background-color: #EFF0F9;
+  border-color: transparent;
+}

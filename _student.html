@@ -1,0 +1,66 @@
+{% extends "_layout.html" %}
+{% block title %}Student Paper Competition{% endblock %}
+{% block content %}
+
+  <div class="container">
+    <div class="row" id="details">
+
+      <h4>Student Paper Competition</h4>
+      <p>
+      Any student or new Ph.D. whose degree was awarded after Jan 1, {{year-1}}
+      is eligible to submit a paper. Papers must contain original unpublished
+      research due mainly to the student.  The student must be the primary
+      author and the paper may be no more than 10 pages in length.  A panel of
+      judges will determine the best papers.
+      </p>
+
+      <p>
+      Additional information on submitting a student paper for the competition
+      can be found on the <a href="submit">submission page</a>.
+      </p>
+
+      <p>
+      Lodging and conference expenses may be awarded, subject to NSF funding.
+      Student paper winners will have priority.
+      </p>
+
+      <p>
+      Postdocs are not considered "students" for this competition, nor
+      eligible for student registration fees.
+      </p>
+
+      <p>
+      Students seeking support should email the conference coordinator, Annette
+      Anthony (annetteFanthony@gmail.com) for more information.
+      </p>
+
+    </div>
+
+    <div class="row" id="past">
+      <h4>Previous Student Paper Competition Winners</h4>
+    </div>
+
+    <div class="row">
+    <table class="table table-md">
+      <tbody>
+      {% set counter=0 %}
+      {% for c in student_paper_winners %}
+        {% if counter % 3 == 0 %}
+        <tr>
+        {% endif %}
+          <td>
+          <b>{{c.year}}</b>
+          {% for name in c.names %}
+          {{ name }}<br/>
+          {% endfor %}
+          </td>
+        {% set counter = counter + 1 %}
+        {% if counter % 3 == 0 %}
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+{% endblock %}

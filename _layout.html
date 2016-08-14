@@ -21,25 +21,31 @@
   <body>
 
     <div class="container">
-      <nav class="navbar navbar-light bg-faded">
+      <nav class="navbar copper-color">
         <div class="nav navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Registration</a>
-          <a class="nav-item nav-link" href="#">Sumbit an abstract</a>
-          <a class="nav-item nav-link" href="#">Submit a student paper</a>
-          <a class="nav-item nav-link" href="#">Lodging</a>
-          <a class="nav-item nav-link" href="#">About</a>
+          <a class="nav-item nav-link active pull-xs-left" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link pull-xs-right" href="#">About</a>
+          <a class="nav-item nav-link pull-xs-right" href="#">Registration</a>
+          <a class="nav-item nav-link pull-xs-right" href="#">Sumbit an abstract</a>
+          <a class="nav-item nav-link pull-xs-right" href="#">Submit a student paper</a>
+          <a class="nav-item nav-link pull-xs-right" href="#">Lodging</a>
         </div>
       </nav>
     </div>
 
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="title text-center">18th Copper Mountain Conference
+          <span style = "display: block;"/>
+          <span style = "font-size: medium;">On</span>
+          <span style = "display: block;"/>
+          Iterative Methods
+        </h1>
+      </div>
+    </div>
+
     <div id="content">
       {% block content %}
-      {% endblock %}
-    </div>
-    <div id="footer" class="footer">
-      {% block footer %}
-      &copy; Copyright 2016 by <a href="http://lukeo.cs.illinois.edu/">Luke Olson</a>.
       {% endblock %}
     </div>
 
