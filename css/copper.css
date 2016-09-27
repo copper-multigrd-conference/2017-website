@@ -48,16 +48,17 @@ h2.title {
   margin: 5px;
 }
 
-.map-responsive{
+.maps{
     overflow:hidden;
     padding-bottom:56.25%;
     position:relative;
     height:0;
 }
-.map-responsive iframe{
+.maps iframe{
     left:0;
     top:0;
     height:100%;
     width:100%;
     position:absolute;
+    pointer-events: none;
 }

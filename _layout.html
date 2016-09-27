@@ -23,11 +23,11 @@
     <div class="container">
       <nav class="navbar copper-color">
         <div class="nav navbar-nav">
-          <a class="nav-item nav-link active pull-xs-left" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active pull-xs-left" href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link pull-xs-right" href="about.html">About</a>
           <a class="nav-item nav-link pull-xs-right" href="#">Registration</a>
           <a class="nav-item nav-link pull-xs-right" href="#">Sumbit an abstract</a>
-          <a class="nav-item nav-link pull-xs-right" href="#">Submit a student paper</a>
+          <a class="nav-item nav-link pull-xs-right" href="student.html">Submit a student paper</a>
           <a class="nav-item nav-link pull-xs-right" href="#">Lodging</a>
         </div>
       </nav>
@@ -53,5 +53,6 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  {% block extrajs %}{% endblock %}
   </body>
 </html>
