@@ -20,7 +20,7 @@ os.makedirs(liveweb)
 
 # parse, render each template here
 env = Environment(loader=FileSystemLoader('./'))
-files = ['_index.html', '_people.html', '_student.html']
+files = ['_index.html', '_people.html', '_student.html', '_about.html']
 
 
 def prune_blank(somelist, key):
