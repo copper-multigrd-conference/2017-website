@@ -27,13 +27,13 @@ def prune_blank(somelist, key):
     return somelist
 
 # Load Data
-with open("./data-conf/info.yml", "r") as inf:
+with open("./data/info.yml", "r") as inf:
     info = yaml.load(inf)
 
-with open("./data-common/student-paper-winners.yml", "r") as inf:
+with open("./data/student-paper-winners.yml", "r") as inf:
     student_paper_winners = yaml.load(inf)
 
-with open("./data-common/previous-conferences.yml", "r") as inf:
+with open("./data/previous-conferences.yml", "r") as inf:
     previous_conferences = yaml.load(inf)
     previous_conferences = prune_blank(previous_conferences, 'year')
     # now order by years
@@ -41,13 +41,13 @@ with open("./data-common/previous-conferences.yml", "r") as inf:
                                   key=lambda k: k['year'],
                                   reverse=True)
 
-with open("./data-conf/committee.yml", "r") as inf:
+with open("./data/committee.yml", "r") as inf:
     committee = yaml.load(inf)
     committee = prune_blank(committee, 'name')
     # order by last part of last name
     committee = sorted(committee, key=lambda k: k['name'].split()[-1])
 
-with open("./data-conf/deadlines.yml", "r") as inf:
+with open("./data/deadlines.yml", "r") as inf:
     deadlines = yaml.load(inf)
 
 for f in files:
