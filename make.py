@@ -10,8 +10,6 @@ from jinja2 import Environment, FileSystemLoader
 # move old to a timestamp just in case
 liveweb = './live'
 
-year = 2017
-
 if os.path.exists(liveweb):
     timestamp = time.strftime('%c').replace(' ', '-')
     shutil.move(liveweb, liveweb+'-'+timestamp)
@@ -20,7 +18,8 @@ os.makedirs(liveweb)
 
 # parse, render each template here
 env = Environment(loader=FileSystemLoader('./'))
-files = ['_index.html', '_people.html', '_student.html', '_about.html']
+files = ['_index.html', '_people.html', '_student.html', '_about.html',
+         '_lodging.html']
 
 
 def prune_blank(somelist, key):
@@ -28,6 +27,9 @@ def prune_blank(somelist, key):
     return somelist
 
 # Load Data
+with open("./data-conf/info.yml", "r") as inf:
+    info = yaml.load(inf)
+
 with open("./data-common/student-paper-winners.yml", "r") as inf:
     student_paper_winners = yaml.load(inf)
 
@@ -50,17 +52,11 @@ with open("./data-conf/deadlines.yml", "r") as inf:
 
 for f in files:
     template_vars = {}
-    if f == '_index.html':
-        template_vars['name'] = 'index'  # for the nav bar
-        template_vars['deadlines'] = deadlines
-        template_vars['previous_conferences'] = previous_conferences
-
-    if f == '_people.html':
-        template_vars['committee'] = committee
-
-    if f == '_student.html':
-        template_vars['student_paper_winners'] = student_paper_winners
-        template_vars['year'] = year
+    template_vars['info'] = info
+    template_vars['deadlines'] = deadlines
+    template_vars['previous_conferences'] = previous_conferences
+    template_vars['committee'] = committee
+    template_vars['student_paper_winners'] = student_paper_winners
 
     html = env.get_template(f).render(template_vars)
     with open(os.path.join('./live/', f[1:]), 'w') as fout:
