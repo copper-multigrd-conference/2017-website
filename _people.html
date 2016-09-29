@@ -6,7 +6,7 @@
   <table class="table table-sm">
     <tbody>
       {% for c in committee %}
-      {% if c.role.lower() in role.lower() %}
+      {% if role.lower() in c.role.lower() %}
           <tr>
             <td style="width: 200px"><a href="{{c.url}}">{{c.name}}</a></td>
             <td style="width: 300px">{{c.email}}</td>
@@ -34,6 +34,10 @@
       <div class="row">
         <h4>Workshop Chair</h4>
         {{ maketable(committee, 'Workshop Chair') }}
+      </div>
+      <div class="row">
+        <h4>SIAM Representative</h4>
+        {{ maketable(committee, 'SIAM') }}
       </div>
     </div>
 {% endblock %}
