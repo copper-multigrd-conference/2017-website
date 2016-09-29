@@ -43,7 +43,7 @@
     <div class="row">
     <table class="table table-md">
       <tbody>
-      {% set counter=0 %}
+      {% set counter = 0 %}
       {% for c in student_paper_winners %}
         {% if counter % 3 == 0 %}
         <tr>
@@ -56,6 +56,13 @@
           </td>
         {% set counter = counter + 1 %}
         {% if counter % 3 == 0 %}
+        </tr>
+        {% endif %}
+      {% endfor %}
+      {% set extra = student_paper_winners|length % 3 - 1 %}
+      {% for c in range(1, extra+1) %}
+        <td></td>
+        {% if c == extra %}
         </tr>
         {% endif %}
       {% endfor %}

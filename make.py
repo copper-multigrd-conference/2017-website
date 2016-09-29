@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 
 import os
 import time
@@ -59,10 +59,15 @@ for f in files:
     template_vars['student_paper_winners'] = student_paper_winners
 
     html = env.get_template(f).render(template_vars)
-    with open(os.path.join('./live/', f[1:]), 'w') as fout:
+    with open(os.path.join('./live/', f[1:]), 'w', encoding='utf8') as fout:
         fout.write(html)
 
 # copy these directories as-is to the webdir
 livedirs = ['font-awesome', 'bootstrap', 'css', 'images']
 for d in livedirs:
     shutil.copytree(d, os.path.join(liveweb, d))
+
+# copy these files as-is to the webdir
+livefiles = ['robots.txt']
+for f in livefiles:
+    shutil.copyfile(f, os.path.join(liveweb, f))
