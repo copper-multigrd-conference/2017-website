@@ -68,6 +68,7 @@ for d in livedirs:
     shutil.copytree(d, os.path.join(liveweb, d))
 
 # copy these files as-is to the webdir
-livefiles = ['robots.txt']
+#livefiles = ['robots.txt']
+livefiles = []
 for f in livefiles:
     shutil.copyfile(f, os.path.join(liveweb, f))
