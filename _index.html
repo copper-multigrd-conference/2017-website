@@ -82,13 +82,13 @@
           <h4 class="card-title">Conference Information</h4>
           <ul class="fa-ul">
             <li><i class="fa-li fa fa-users"></i><a href="people.html#chair">Conference Chairs</a>
-              <li><i class="fa-li fa fa-users"></i><a href="people.html#committee">Conference Program Committee</a>
+            <li><i class="fa-li fa fa-users"></i><a href="people.html#committee">Conference Program Committee</a>
           </ul>
           <br/>
           <ul class="fa-ul">
-            <li><i class="fa-li fa fa-users"></i><a href="student.html#details">Student Registration Support</a>
-              <li><i class="fa-li fa fa-users"></i><a href="student.html#details">Student Paper Competition</a>
-                <li><i class="fa-li fa fa-users"></i><a href="student.html#past">Student Paper Competition List of Previous Winners</a>
+            <li><i class="fa-li fa fa-graduation-cap"></i><a href="student.html#details">Student Registration Support</a>
+            <li><i class="fa-li fa fa-file-text"></i><a href="student.html#details">Student Paper Competition</a>
+            <li><i class="fa-li fa fa-trophy"></i><a href="student.html#past">Student Paper Competition List of Previous Winners</a>
           </ul>
         </div>
       </div>
@@ -99,32 +99,32 @@
           <h4 class="card-title">Previous Conference Information</h4>
           <ul class="small list-unstyled">
             {% for c in previous_conferences %}
-            {% if c.year > 2012 %}
-            {% set recent = True %}
-            {% else %}
-            {% if recent %}
+              {% if c.year > 2012 %}
+              {% set recent = True %}
+              {% else %}
+                {% if recent %}
             <li><a data-toggle="collapse" href="#collapse1"> (more years) </a></li>
           </ul>
           <div id="collapse1" class="panel-collapse collapse">
             <ul class="small list-unstyled">
-              {% set recent = False %}
-              {% endif %}
+                {% set recent = False %}
+                {% endif %}
               {% endif %}
               <li>
-                {% if c.url %}
+              {% if c.url %}
                 <a href="{{c.url}}">
-                  {% endif %}
-                  {{c.year}} - {{c.title}}
-                  {% if c.url %}
+              {% endif %}
+              <b>{{c.year}}</b> - {{c.title}}
+              {% if c.url %}
                 </a>
-                {% endif %}
-                {% if c.journal %}
+              {% endif %}
+              {% if c.journal %}
                 <ul class="fa-ul">
                   <li><i class="fa fa-book"></i> <a href="{{c['journal-url']}}"> {{c['journal-abbv']}} Special Issue </a> </li>
                 </ul>
-                {% endif %}
+              {% endif %}
               </li>
-              {% endfor %}
+            {% endfor %}
             </ul>
           </div>
         </div>
