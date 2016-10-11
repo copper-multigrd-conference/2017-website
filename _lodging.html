@@ -15,11 +15,10 @@
 
     <h4>Per night rates (as of Spring 2016) are as follows</h4>
     <pre>
-        Gold 1 bedroom condo:    $216/night
-        Silver hotel room:       $151/night
-        Silver deluxe studio:    $156/night
-        Silver 1 bedroom condo:  $203/night
-        Silver 2 bedroom condo:  $306/night
+        {% for d in info.rates -%}
+        {% set dd = d.popitem() %}
+        {{ dd[0] }}: {{ dd[1] }}
+        {%- endfor %}
     </pre>
 
     <p> Make your room reservation directly with Copper Mountain before or on
