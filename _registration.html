@@ -3,9 +3,72 @@
 {% block content %}
 
   <div class="container">
-    <div class="row" id="details">
+    <div class="row">
+      <h4>Conference Registration</h4>
+    </div>
 
-      <h1>Coming soon...</h1>
+    <div class="row">
+      <div class="m-x-auto" style="width: 400px; margin: 50px;">
+            {% for d in deadlines %}
+                {%if d.title == "Early Registration" %}
+              Registration on or before <b>{{d.date}}</b>:
+              {% endif %}
+            {% endfor %}
+
+<table class="table">
+  <tr><td>SIAM Member (early)     </td><td>445</td></tr>
+  <tr><td>non-SIAM Member (early) </td><td>495</td></tr>
+  <tr><td>student                 </td><td>185</td></tr>
+</table>
+
+      </div>
+      <div class="m-x-auto" style="width: 400px; margin: 50px;">
+            {% for d in deadlines %}
+                {%if d.title == "Early Registration" %}
+              Registration after <b>{{d.date}}</b>:
+              {% endif %}
+            {% endfor %}
+
+<table class="table">
+     <tr><td>SIAM Member            </td><td> 500</td></tr>
+     <tr><td>non-SIAM Member        </td><td> 550</td></tr>
+     <tr><td>student                </td><td> 185</td></tr>
+</table>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+      To receive the early, discounted rates you must register on or before
+            {% for d in deadlines %}
+                {%if d.title == "Early Registration" %}
+              <b>{{d.date}}</b>.
+              {% endif %}
+            {% endfor %}
+      </p>
+
+      <p>
+      Registration will take place through EventZilla at the following link:
+      <div class="text-xs-center">
+      <a role="button" class="btn btn-primary btn-lg" href="https://www.eventzilla.net/web/event/18th-copper-mountain-conference-on-multigrid-methods-2017-2138877681">Register</a>
+      </div>
+      </p>
+
+      <p>
+      Registration fees include a registration packet (available at the conference registration desk), a reception on Sunday evening, continental breakfast at the conference each day, coffee breaks at the conference, and a banquet on Thursday evening.  Please indicate your availability for these events at registration checkout.
+      </p>
+
+      <p>
+      No refunds will be given for cancellations on or after TBD.
+      Full refunds less a $100 service charge will be given if
+      notified before TBD.
+      </p>
+
+      <p>
+      Travel support may be available for students, postdocs, underrepresented groups, and attendees with disabilities.  Please see
+      <a href="mailto:annettefanthony@gmail.com">annettefanthony@gmail.com</a> for more information.
+      </p>
 
     </div>
   </div>
