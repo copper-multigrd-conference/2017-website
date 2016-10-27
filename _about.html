@@ -3,6 +3,25 @@
 {% block content %}
 
 <div class="container">
+  <div class="row" id="topic">
+    <h4>Highlighted Topics</h4>
+    <ul class=>
+      <li>Algebraic multigrid</li>
+      <li>Emerging architectures and exascale computing</li>
+      <li>Software</li>
+      <li>Parallel time integration</li>
+      <li>Complex physics problems</li>
+      <li>Structured methods</li>
+      <li>Upscaling</li>
+      <li>Hierarchical low-rank matrix decompositions</li>
+      <li>Graph problems</li>
+      <li>Design and Performance for New Architectures</li>
+      <li>Stochastic and High Dimensional problems</li>
+      <li>Performance</li>
+      <li>Applications</li>
+    </ul>
+
+  </div>
   <div class="row" id="format">
     <h4>Conference Format</h4>
 
@@ -13,6 +32,40 @@
     <p>
     A <a href="student.html#details">student paper competition</a> is open to current and recent students attending the conference.  In addition, a special issue devoted to the themes of the conference is open to all (details can be found on the <a href="index.html">home</a> page).
     </p>
+  </div>
+
+  <div class="row" id="specialissue">
+    <h4>Journal Special Issue</h4>
+    <p>
+     As in previous odd-numbered years, a Special Section of Numerical Linear
+     Algebra with Applications is planned. This single issue will be dedicated
+     to recent progress in multigrid methods. Submissions are encouraged in all
+     aspects of multigrid methods, including this year's highlighted <a href="about.html#topics">topics</a>.
+    </p>
+
+    <p>
+      Attendees and participants of the conference as well as the general community
+      are invited to submit papers. The papers should meet the formatting and
+      editorial requirements of Numerical Linear Algebra with Applications.
+    </p>
+
+    <p>
+      Submissions for the special issue will be accepted from April 12 until June 15, 2017
+            {% for d in deadlines %}
+                {%if d.title == "Journal Special Issue" %}
+              <b>{{d.date}}</b>.
+              {% endif %}
+            {% endfor %}
+      Papers will be subject to review by a guest Editorial Board.
+    </p>
+
+    <p>
+      Submissions should be made using the ordinary submission process
+      <a href="http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-1506">Numerical Linear Algebra with Applications</a>
+      with a statement in the cover letter requesting that the paper be considered for the
+      Special Issue on Multigrid Methods.
+    </p>
+
   </div>
 
   <div class="row" id="location">
