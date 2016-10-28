@@ -9,11 +9,8 @@
 
     <div class="row">
       <div class="m-x-auto" style="width: 400px; margin: 50px;">
-            {% for d in deadlines %}
-                {%if d.title == "Early Registration" %}
-              Registration on or before <b>{{d.date}}</b>:
-              {% endif %}
-            {% endfor %}
+              Registration on or before
+              <b>{{deadlines.earlyregistration.date}}</b>:
 
 <table class="table">
   <tr><td>SIAM Member (early)     </td><td>445</td></tr>
@@ -23,11 +20,8 @@
 
       </div>
       <div class="m-x-auto" style="width: 400px; margin: 50px;">
-            {% for d in deadlines %}
-                {%if d.title == "Early Registration" %}
-              Registration after <b>{{d.date}}</b>:
-              {% endif %}
-            {% endfor %}
+              Registration after
+              <b>{{deadlines.earlyregistration.date}}</b>:
 
 <table class="table">
      <tr><td>SIAM Member            </td><td> 500</td></tr>
@@ -41,11 +35,7 @@
     <div class="row">
       <p>
       To receive the early, discounted rates you must register on or before
-            {% for d in deadlines %}
-                {%if d.title == "Early Registration" %}
-              <b>{{d.date}}</b>.
-              {% endif %}
-            {% endfor %}
+              <b>{{deadlines.earlyregistration.date}}</b>:
       </p>
 
       <p>

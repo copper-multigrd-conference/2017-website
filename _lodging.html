@@ -21,14 +21,8 @@
         {%- endfor %}
     </pre>
 
-    <p> Make your room reservation directly with Copper Mountain before or on
-    {% for d in deadlines %}
-        {%if d.title is not none %}
-            {% if "lodging" in d.title.lower() %}
-                {{ d.date }}.
-            {% endif %}
-        {% endif %}
-    {% endfor %}
+    <p> Make your room reservation directly with Copper Mountain on or before
+    <b>{{ deadlines.lodging.date }}</b>.
     Availability of rooms cannot be guaranteed after this date.
     Copper Mountain reserves the right to release part of the conference
     room block if 50% of the block is not reserved by this date.  After this date,

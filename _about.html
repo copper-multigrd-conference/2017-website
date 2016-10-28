@@ -50,12 +50,7 @@
     </p>
 
     <p>
-      Submissions for the special issue will be accepted from April 12 until June 15, 2017
-            {% for d in deadlines %}
-                {%if d.title == "Journal Special Issue" %}
-              <b>{{d.date}}</b>.
-              {% endif %}
-            {% endfor %}
+    Submissions for the special issue will be accepted from {{ deadlines.specialissueopen.date }} until <b>{{ deadlines.specialissue.date }}</b>.
       Papers will be subject to review by a guest Editorial Board.
     </p>
 
