@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import io
 import os
 import time
 import yaml
@@ -28,13 +29,13 @@ def prune_blank(somelist, key):
     return somelist
 
 # Load Data
-with open("./data/info.yml", "r") as inf:
+with io.open("./data/info.yml", "r") as inf:
     info = yaml.load(inf)
 
-with open("./data/student-paper-winners.yml", "r") as inf:
+with io.open("./data/student-paper-winners.yml", "r") as inf:
     student_paper_winners = yaml.load(inf)
 
-with open("./data/previous-conferences.yml", "r") as inf:
+with io.open("./data/previous-conferences.yml", "r") as inf:
     previous_conferences = yaml.load(inf)
     previous_conferences = prune_blank(previous_conferences, 'year')
     # now order by years
@@ -42,13 +43,13 @@ with open("./data/previous-conferences.yml", "r") as inf:
                                   key=lambda k: k['year'],
                                   reverse=True)
 
-with open("./data/committee.yml", "r") as inf:
+with io.open("./data/committee.yml", "r") as inf:
     committee = yaml.load(inf)
     committee = prune_blank(committee, 'name')
     # order by last part of last name
     committee = sorted(committee, key=lambda k: k['name'].split()[-1])
 
-with open("./data/deadlines.yml", "r") as inf:
+with io.open("./data/deadlines.yml", "r") as inf:
     deadlines = yaml.load(inf)
 
 # now render the pages
@@ -61,7 +62,7 @@ for f in files:
     template_vars['student_paper_winners'] = student_paper_winners
 
     html = env.get_template(f).render(template_vars)
-    with open(os.path.join('./live/', f[1:]), 'w', encoding='utf8') as fout:
+    with io.open(os.path.join('./live/', f[1:]), 'w', encoding='utf8') as fout:
         fout.write(html)
 
 # copy these directories as-is to the webdir
