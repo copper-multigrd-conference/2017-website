@@ -6,10 +6,12 @@ Public website data
 
 1. clone: `git clone git@github.com:copper-multigrd-conference/website.git`
 2. build: `./make.py`
+3. view: the static html pages are built in `live`.  Use `python3 -m http.server 8000` and point your browser to `localhost:8000` to view.
+4. sync: rsync the `live` directory to your favorite server
 
 # Requirements
 
-The data is stored with `pyaml`.
+The data is stored with `yaml`.
 
 The pages are generated with `jinja2`.
 
