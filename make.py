@@ -22,6 +22,7 @@ files = ['_index.html', '_people.html', '_student.html', '_about.html',
          '_lodging.html', '_registration.html', '_submit.html']
 
 
+# remove blank entries from the yaml input
 def prune_blank(somelist, key):
     somelist = [c for c in somelist if c[key] is not None]
     return somelist
@@ -50,6 +51,7 @@ with open("./data/committee.yml", "r") as inf:
 with open("./data/deadlines.yml", "r") as inf:
     deadlines = yaml.load(inf)
 
+# now render the pages
 for f in files:
     template_vars = {}
     template_vars['info'] = info
@@ -68,7 +70,7 @@ for d in livedirs:
     shutil.copytree(d, os.path.join(liveweb, d))
 
 # copy these files as-is to the webdir
-#livefiles = ['robots.txt']
+# livefiles = ['robots.txt']
 livefiles = []
 for f in livefiles:
     shutil.copyfile(f, os.path.join(liveweb, f))
