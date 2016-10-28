@@ -12,7 +12,7 @@ from jinja2 import Environment, FileSystemLoader
 liveweb = './live'
 
 if os.path.exists(liveweb):
-    timestamp = time.strftime('%c').replace(' ', '-')
+    timestamp = time.strftime('%c').replace(' ', '-').replace(':', '.')
     shutil.move(liveweb, liveweb+'-'+timestamp)
 
 os.makedirs(liveweb)
