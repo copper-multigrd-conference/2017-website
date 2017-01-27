@@ -10,7 +10,7 @@ studentpaper:
 
 earlyregistration:
   title: Early Registration
-  date: Friday, January 27, 2017
+  date: Sunday, March 5, 2017
   url: registration.html
 
 registration:
@@ -32,3 +32,6 @@ specialissueopen:
   title: Journal Special Issue Open
   date: April 15, 2017
   url: about.html#specialissue
+
+cancellation:
+  date: March 5, 2017
