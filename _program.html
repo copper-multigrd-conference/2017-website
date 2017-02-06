@@ -3,10 +3,139 @@
 {% block content %}
 
   <div class="container">
-    <div class="row" id="details">
 
-      <h1>Coming soon...</h1>
+      <div class="row">
+        <h1> Sunday </h1>
+        <table class="table">
+          <tr>
+            <td></td><td colspan=2 align="center"><b>Tutorials</b></td>
+          </tr>
+          <tr><td> 8:30am - 11:30am</td><td colspan=2><b>Irad Yavneh</b><br/><i>Multigrid - the Fundamentals</i></td></tr>
+          <tr><td> 1:30pm -  4:00pm</td><td colspan=2><b>Van Henson</b><br/><i>Algebraic Multigrid and Advanced Topics</i> (Van Henson)</td></tr>
+          <tr><td> 4:30pm -  6:00pm</td><td colspan=2><b>Rob Falgout</b><br/><i>Parallel Multigrid</i></td></tr>
+          <tr><td> 7:00pm -  9:00pm</td><td colspan=2 style="background-color: #E9E5DC;">Registration and Reception, Cash Bar and Light Buffet</td></tr>
+          <tr>
+            <td style="width:10%"></td>
+            <td style="width:45%"></td>
+            <td style="width:45%"></td>
+          </tr>
+        </table>
 
-    </div>
+    {% set sessiontimes = [['8:00', '8:25', '8:50', '9:15', '9:40'],
+                           ['10:25', '10:50', '11:15', '11:40', '12:05'],
+                           ['4:30', '4:55', '5:20', '5:45', '6:10']] %}
+    {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday'] %}
+      {% set coffeecolor = '#E9E5DC' %}
+      <div class="row">
+        <h1>{{ day }}</h1>
+        <table class="table table-bordered">
+          <tr>
+            <th scope="row">
+              7:30 - 8:30am
+            </th>
+            <td colspan="2" align="center" style="background-color: {{coffeecolor}};">
+              Breakfast (Copper Conference Center)
+            </td>
+          </tr>
+
+          {% for session in program_data[day] %}
+            {% set sess_loop = loop %}
+            {% set numparallel = session|length %}
+            {% set parcolors = ['#D9EDF7', '#DFF0DB'] %}
+
+            <tr>
+              <td></td>
+            {% for i in range(numparallel) %}
+              <td colspan="{{numparallel % 2 + 1}}" align="center" style="background-color: {{parcolors[i]}};">
+                <b>{{session[i].title}}</b>
+              </td>
+            {% endfor %}
+            </tr>
+
+            {% for talk in range(5) %}
+              {% set talk_loop = loop %}
+            <tr>
+              <th scope="row">
+                {{ sessiontimes[sess_loop.index0][talk_loop.index0] }}
+              </th>
+              {% for i in range(numparallel) %}
+              <td colspan="{{numparallel % 2 + 1}}" style="background-color: {{parcolors[i]}};">
+                {% set tid = session[i].talks[talk_loop.index0] %}
+                {% if tid > 0 %}
+                  {% for a in session[i].authors[talk_loop.index0] %}
+                    {% if session[i].speaker[talk_loop.index0] == loop.index0 %}
+                    <b> {{ a }} </b>
+                    {% endif %}
+                  {% endfor %}
+                  <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}abs" aria-expanded="false" aria-controls="collapse{{tid}}abs">[abstract]</a>
+                  <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}key" aria-expanded="false" aria-controls="collapse{{tid}}key">[keywords]</a>
+                  <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}auth" aria-expanded="false" aria-controls="collapse{{tid}}auth">[authors]</a>
+                <br/>
+                <i>{{ session[i].titles[talk_loop.index0] }}</i>
+                <br/>
+                <div class="collapse" id="collapse{{tid}}auth">
+                  <div class="card card-block">
+                    {{ session[i].authors[talk_loop.index0]|join(', ') }}
+                  </div>
+                </div>
+                <div class="collapse" id="collapse{{tid}}abs">
+                  <div class="card card-block">
+                    {{ session[i].abstract[talk_loop.index0] }}
+                  </div>
+                </div>
+                <div class="collapse" id="collapse{{tid}}key">
+                  <div class="card card-block">
+                    {{ session[i].keywords[talk_loop.index0]|join(', ') }}
+                  </div>
+                </div>
+                {% else %}
+                  (open)
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+
+            {% if sess_loop.index0 == 0 %}
+            <tr>
+              <th scope="row">
+                10:05-10:25am
+              </th>
+              <td colspan="2" align="center" style="background-color: {{coffeecolor}};">
+                Coffee Break
+              </td>
+            </tr>
+            {% endif %}
+
+            {% if sess_loop.index0 == 1 and day != 'Thursday' %}
+            <tr>
+              <th scope="row">
+                4:00-4:30pm
+              </th>
+              <td colspan="2" align="center" style="background-color: {{coffeecolor}};">
+                Coffee and Tea
+              </td>
+            </tr>
+            {% endif %}
+
+          {% endfor %}
+
+          <tr>
+            <td style="width:10%"></td>
+            <td style="width:45%"></td>
+            <td style="width:45%"></td>
+          </tr>
+        </table>
+      </div>
+    {% endfor %}
   </div>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 {% endblock %}

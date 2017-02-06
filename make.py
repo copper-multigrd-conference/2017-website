@@ -6,6 +6,7 @@ import time
 import yaml
 import shutil
 from jinja2 import Environment, FileSystemLoader
+import generate_submission_data
 
 # make the live web directory if needed
 # move old to a timestamp just in case
@@ -20,13 +21,15 @@ os.makedirs(liveweb)
 # parse, render each template here
 env = Environment(loader=FileSystemLoader('./'))
 files = ['_index.html', '_people.html', '_student.html', '_about.html',
-         '_lodging.html', '_registration.html', '_submit.html']
+         '_lodging.html', '_registration.html', '_submit.html',
+         '_program.html']
 
 
 # remove blank entries from the yaml input
 def prune_blank(somelist, key):
     somelist = [c for c in somelist if c[key] is not None]
     return somelist
+
 
 # Load Data
 with io.open("./data/info.yml", "r") as inf:
@@ -52,6 +55,8 @@ with io.open("./data/committee.yml", "r") as inf:
 with io.open("./data/deadlines.yml", "r") as inf:
     deadlines = yaml.load(inf)
 
+program_data = generate_submission_data.generate()
+
 # now render the pages
 for f in files:
     template_vars = {}
@@ -60,6 +65,7 @@ for f in files:
     template_vars['previous_conferences'] = previous_conferences
     template_vars['committee'] = committee
     template_vars['student_paper_winners'] = student_paper_winners
+    template_vars['program_data'] = program_data
 
     html = env.get_template(f).render(template_vars)
     with io.open(os.path.join('./live/', f[1:]), 'w', encoding='utf8') as fout:

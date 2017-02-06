@@ -69,3 +69,11 @@ h2.title {
     position:absolute;
     pointer-events: none;
 }
+
+.parallela {
+  background-color: #D9EDF7;
+}
+
+.parallelb {
+  background-color: #DFF0DB;
+}
