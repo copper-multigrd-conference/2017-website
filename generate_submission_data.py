@@ -115,7 +115,7 @@ def generate(layoutfile='./data-not-in-version-control/Copper 2017_data - Submis
                         df = authordata[authordata['submission #'] == t]
                         df = df.fillna('')
                         authors = [f+' '+l for f, l in zip(df['first name'], df['last name'])]
-                        speaker = [i for i, b in enumerate(df['speaker?'].tolist()) if b == 'yes']
+                        speaker = [i for i, b in enumerate(df['speaker?'].tolist()) if b.encode() == b'\xe2\x9c\x94']
                         if len(speaker) > 0:
                             speaker = speaker[0]
                         else:
