@@ -1,5 +1,6 @@
 import csv
 import pandas as pd
+import re
 
 # ### Process
 #
@@ -109,7 +110,11 @@ def generate(layoutfile='./data-not-in-version-control/Copper 2017_data - Submis
                 for i, t in enumerate(p['talks']):
                     if t > 0:
                         p['titles'][i] = latestdata.loc[t]['title']
-                        p['abstract'][i] = latestdata.loc[t]['abstract'].replace('\n', '<br/>')
+                        abstract = latestdata.loc[t]['abstract']
+                        abstract = re.sub('(?<!\n)\n(?!\n)', ' ', abstract)  # replace single \n
+                        abstract = abstract.replace('\n', '<br/>')  # replace \n with <br/>
+                        abstract = re.sub('\s\s+', ' ', abstract)  # remove multiple spaces
+                        p['abstract'][i] = abstract
                         p['keywords'][i] = latestdata.loc[t]['keywords'].split()
 
                         df = authordata[authordata['submission #'] == t]
