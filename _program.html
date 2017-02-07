@@ -15,7 +15,7 @@
           <tr><td> 8:30am - 11:30am</td><td colspan=2><b>Irad Yavneh</b><br/><i>Multigrid - the Fundamentals</i></td></tr>
           <tr><td> 1:30pm -  4:00pm</td><td colspan=2><b>Van Henson</b><br/><i>Algebraic Multigrid and Advanced Topics</i> (Van Henson)</td></tr>
           <tr><td> 4:30pm -  6:00pm</td><td colspan=2><b>Rob Falgout</b><br/><i>Parallel Multigrid</i></td></tr>
-          <tr><td> 7:00pm -  9:00pm</td><td colspan=2 style="background-color: {{banquetcolor}};">Registration and Reception, Cash Bar and Light Buffet</td></tr>
+          <tr><td> 7:00pm -  9:00pm</td><td colspan=2 style="background-color: {{banquetcolor}};"><b>Registration and Reception, Cash Bar and Light Buffet</b></td></tr>
           <tr>
             <td style="width:10%"></td>
             <td style="width:45%"></td>
@@ -70,7 +70,6 @@
                     {% endif %}
                   {% endfor %}
                   <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}abs" aria-expanded="false" aria-controls="collapse{{tid}}abs">[abstract]</a>
-                  <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}key" aria-expanded="false" aria-controls="collapse{{tid}}key">[keywords]</a>
                   <a class="pull-right" data-toggle="collapse" href="#collapse{{tid}}auth" aria-expanded="false" aria-controls="collapse{{tid}}auth">[authors]</a>
                 <br/>
                 <i>{{ session[i].titles[talk_loop.index0] }}</i>
@@ -83,11 +82,6 @@
                 <div class="collapse" id="collapse{{tid}}abs">
                   <div class="card card-block">
                     {{ session[i].abstract[talk_loop.index0] }}
-                  </div>
-                </div>
-                <div class="collapse" id="collapse{{tid}}key">
-                  <div class="card card-block">
-                    {{ session[i].keywords[talk_loop.index0]|join(', ') }}
                   </div>
                 </div>
                 {% else %}
@@ -143,7 +137,7 @@
                 6:00-9:00pm
               </th>
               <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
-                Cash bar and Dinner Banquet at Copper Conference Center
+                <b>Cash bar and Dinner Banquet at Copper Conference Center</b>
               </td>
             </tr>
               {% endif %}
@@ -153,10 +147,54 @@
               {% if day == 'Tuesday' %}
             <tr>
               <th scope="row">
-                6:00-9:00pm
+                8:00-9:15pm
               </th>
               <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
-                Tutorial
+                <b>Jacob Schroder and Rob Falgout</b>
+                <a class="pull-right" data-toggle="collapse" href="#collapsetutorialabs" aria-expanded="false" aria-controls="collapsetutorialabs">[abstract]</a>
+                <br/>
+                <i>XBraid Tutorial</i>
+                <div class="collapse" id="collapsetutorialabs">
+                  <div class="card card-block text-left">
+<pre>
+Expected duration 60-70 minutes.
+
+XBraid is an open source, non-intrusive, and general purpose parallel-
+in-time code developed at Lawrence Livermore National Lab.  The need
+for parallelism in time is being driven by changes in computer
+architectures, where future speedups will be available through greater
+concurrency, but not faster clock speeds, which are stagnant.  This
+leads to a bottleneck for sequential time marching schemes, because
+they lack parallelism in the time dimension.  To address this
+bottleneck, XBraid non-intrusively implements the multigrid reduction
+in time (MGRIT) algorithm, which allows for the addition of temporal
+parallelism to existing codes.
+
+XBraid
+- Is a scalable, multilevel parallel-in-time method based on multigrid
+- Non-intrusively wraps existing sequential time integration codes
+- Allows for a variety of time stepping schemes
+- Supports a variety of space-time refinement approaches
+- Uses FAS multigrid to solve nonlinear problems
+- Is equivalent to parareal with certain two-level settings
+
+
+The XBraid code
+- Is written in MPI/C with C++ and F90 interfaces
+- Is released under LGPL 2.1
+
+The tutorial can simply be watched, or it can be interactive.  If you
+want to run the examples, you'll need the following.
+Requirements:
+ - XBraid 2.1 (or higher)
+   For code and user's manual, see http://llnl.gov/casc/xbraid
+ - GCC compiler
+Recommended:
+ - MPI
+ - Python 2.7 (or higher) with NumPy and Matplotlib
+</pre>
+                  </div>
+                </div>
               </td>
             </tr>
               {% endif %}
@@ -169,7 +207,7 @@
                 12:05
               </th>
               <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
-                End of Conference
+                <b>End of Conference</b>
               </td>
             </tr>
               {% endif %}
