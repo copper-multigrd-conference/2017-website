@@ -3,32 +3,34 @@
 {% block content %}
 
   <div class="container">
+      {% set coffeecolor = '#E9E5DC' %}
+      {% set banquetcolor = '#FDDECA' %}
 
       <div class="row">
         <h1> Sunday </h1>
-        <table class="table">
+        <table class="table program-table">
           <tr>
             <td></td><td colspan=2 align="center"><b>Tutorials</b></td>
           </tr>
           <tr><td> 8:30am - 11:30am</td><td colspan=2><b>Irad Yavneh</b><br/><i>Multigrid - the Fundamentals</i></td></tr>
           <tr><td> 1:30pm -  4:00pm</td><td colspan=2><b>Van Henson</b><br/><i>Algebraic Multigrid and Advanced Topics</i> (Van Henson)</td></tr>
           <tr><td> 4:30pm -  6:00pm</td><td colspan=2><b>Rob Falgout</b><br/><i>Parallel Multigrid</i></td></tr>
-          <tr><td> 7:00pm -  9:00pm</td><td colspan=2 style="background-color: #E9E5DC;">Registration and Reception, Cash Bar and Light Buffet</td></tr>
+          <tr><td> 7:00pm -  9:00pm</td><td colspan=2 style="background-color: {{banquetcolor}};">Registration and Reception, Cash Bar and Light Buffet</td></tr>
           <tr>
             <td style="width:10%"></td>
             <td style="width:45%"></td>
             <td style="width:45%"></td>
           </tr>
         </table>
+      </div>
 
     {% set sessiontimes = [['8:00', '8:25', '8:50', '9:15', '9:40'],
                            ['10:25', '10:50', '11:15', '11:40', '12:05'],
                            ['4:30', '4:55', '5:20', '5:45', '6:10']] %}
     {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday'] %}
-      {% set coffeecolor = '#E9E5DC' %}
       <div class="row">
         <h1>{{ day }}</h1>
-        <table class="table table-bordered">
+        <table class="table program-table">
           <tr>
             <th scope="row">
               7:30 - 8:30am
@@ -101,7 +103,7 @@
                 10:05-10:25am
               </th>
               <td colspan="2" align="center" style="background-color: {{coffeecolor}};">
-                Coffee Break
+                Coffee and Tea (provided)
               </td>
             </tr>
             {% endif %}
@@ -109,12 +111,68 @@
             {% if sess_loop.index0 == 1 and day != 'Thursday' %}
             <tr>
               <th scope="row">
+                12:30-4:00pm
+              </th>
+              <td colspan="2" align="center">
+                Lunch Break
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
                 4:00-4:30pm
               </th>
               <td colspan="2" align="center" style="background-color: {{coffeecolor}};">
-                Coffee and Tea
+                Coffee, Tea, and Snacks (provided)
               </td>
             </tr>
+            {% endif %}
+
+            {% if sess_loop.index0 == 2 %}
+              {% if day != 'Wednesday' %}
+            <tr>
+              <th scope="row">
+                6:35pm
+              </th>
+              <td colspan="2" align="center">
+                Dinner Break
+              </td>
+            </tr>
+              {% else %}
+            <tr>
+              <th scope="row">
+                6:00-9:00pm
+              </th>
+              <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
+                Cash bar and Dinner Banquet at Copper Conference Center
+              </td>
+            </tr>
+              {% endif %}
+            {% endif %}
+
+            {% if sess_loop.index0 == 2 %}
+              {% if day == 'Tuesday' %}
+            <tr>
+              <th scope="row">
+                6:00-9:00pm
+              </th>
+              <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
+                Tutorial
+              </td>
+            </tr>
+              {% endif %}
+            {% endif %}
+
+            {% if sess_loop.index0 == 1 %}
+              {% if day == 'Thursday' %}
+            <tr>
+              <th scope="row">
+                12:05
+              </th>
+              <td colspan="2" align="center" style="background-color: {{banquetcolor}};">
+                End of Conference
+              </td>
+            </tr>
+              {% endif %}
             {% endif %}
 
           {% endfor %}

@@ -42,6 +42,7 @@ h2.title {
 }
 
 .copper-color {
+  color: #000000;
   background-color: #EFF0F9;
   border-color: transparent;
 }
@@ -81,4 +82,8 @@ h2.title {
 
 .main-block {
   margin-bottom: 20px;
+}
+
+.program-table td {
+  padding: 4px;
 }
