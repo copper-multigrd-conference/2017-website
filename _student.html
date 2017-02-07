@@ -3,8 +3,6 @@
 {% block content %}
 
   <div class="container">
-    <div class="row" id="details">
-
       <h4>Student Paper Competition</h4>
       <p>
       Any student or new Ph.D. whose degree was awarded after Jan 1, {{info.year-1}}
@@ -52,13 +50,9 @@
         <li>A paper (in pdf form) for submission to the <a href="student.html">student paper competition</a>.</li>
       </ol>
       </p>
-    </div>
 
-    <div class="row" id="past">
       <h4>Previous Student Paper Competition Winners</h4>
-    </div>
 
-    <div class="row">
     <table class="table table-md">
       <tbody>
       {% set counter = 0 %}
@@ -86,6 +80,5 @@
       {% endfor %}
       </tbody>
     </table>
-    </div>
   </div>
 {% endblock %}

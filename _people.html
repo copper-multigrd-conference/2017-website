@@ -19,17 +19,11 @@
 {%- endmacro %}
 
     <div class="container">
-      <div class="row" id="chair">
-        <h4>Conference Chairs</h4>
-        {{ maketable(committee, 'Conference Chair') }}
-      </div>
-      <div class="row" id="committee">
-        <h4>Program Committee</h4>
-        {{ maketable(committee, 'Program Committee') }}
-      </div>
-      <div class="row">
-        <h4>SIAM Representative</h4>
-        {{ maketable(committee, 'SIAM') }}
-      </div>
+      <h4 id="chair">Conference Chairs</h4>
+      {{ maketable(committee, 'Conference Chair') }}
+      <h4 id="committee">Program Committee</h4>
+      {{ maketable(committee, 'Program Committee') }}
+      <h4>SIAM Representative</h4>
+      {{ maketable(committee, 'SIAM') }}
     </div>
 {% endblock %}

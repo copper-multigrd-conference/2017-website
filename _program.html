@@ -6,7 +6,6 @@
       {% set coffeecolor = '#E9E5DC' %}
       {% set banquetcolor = '#FDDECA' %}
 
-      <div class="row">
         <p>
       This program is subject to modifications.   We will try to limit most schedule changes to within the given day, however participants and speakers should monitor this page throughout the conference.
         </p>
@@ -16,9 +15,7 @@
         </p>
 
         <p>All conference activities will be held in the Copper Conference Center.</p>
-  </div>
 
-      <div class="row">
         <h1> Sunday </h1>
         <table class="table program-table">
           <tr>
@@ -34,13 +31,11 @@
             <td style="width:45%"></td>
           </tr>
         </table>
-      </div>
 
     {% set sessiontimes = [['8:00', '8:25', '8:50', '9:15', '9:40'],
                            ['10:25', '10:50', '11:15', '11:40', '12:05'],
                            ['4:30', '4:55', '5:20', '5:45', '6:10']] %}
     {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday'] %}
-      <div class="row">
         <h1>{{ day }}</h1>
         <table class="table program-table">
           <tr>
@@ -233,7 +228,6 @@ Recommended:
             <td style="width:45%"></td>
           </tr>
         </table>
-      </div>
     {% endfor %}
   </div>
 {% endblock %}
