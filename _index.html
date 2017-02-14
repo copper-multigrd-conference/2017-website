@@ -6,7 +6,9 @@
     <div class="d-block mx-auto main-block">
       <h2 class="title text-danger">{{ info.date }}</h2>
       <h2 class="title">Copper Mountain, Colorado</h2>
-      <h2 class="title" style="color: #110000;"><a href="http://easychair.org/smart-program/Copper2017/index.html">Program</a></h2>
+    </div >
+    <div class="d-block mx-auto main-block">
+      <h2 class="title" style="color: #110000;"><a href="http://easychair.org/smart-program/Copper2017/index.html">**Program**</a></h2>
     </div >
 
   <div class="row">
@@ -26,14 +28,11 @@
       <div class="card card-info copper-color">
         <div class="card-block">
           <h4 class="card-title">Conference Deadlines</h4>
-<a href="{{deadlines.abstracts.url}}"         > {{deadlines.abstracts.title}}        </a>:<b>{{deadlines.abstracts.date}}        </b><br/>
-<a href="{{deadlines.studentpaper.url}}"      > {{deadlines.studentpaper.title}}     </a>:<b>{{deadlines.studentpaper.date}}     </b><br/>
-<a href="{{deadlines.earlyregistration.url}}" > {{deadlines.earlyregistration.title}}</a>:<b>{{deadlines.earlyregistration.date}}</b><br/>
-<!--
-<a href="{{deadlines.registration.url}}"      > {{deadlines.registration.title}}     </a>:<b>{{deadlines.registration.date}}     </b><br/>
--->
-<a href="{{deadlines.lodging.url}}"           > {{deadlines.lodging.title}}          </a>:<b>{{deadlines.lodging.date}}          </b><br/>
-<a href="{{deadlines.specialissue.url}}"      > {{deadlines.specialissue.title}}     </a>:<b>{{deadlines.specialissue.date}}     </b><br/>
+<a href="{{deadlines.abstracts.url}}"         > {{deadlines.abstracts.title}}        </a>:{{deadlines.abstracts.date}}        <br/>
+<a href="{{deadlines.studentpaper.url}}"      > {{deadlines.studentpaper.title}}     </a>:{{deadlines.studentpaper.date}}     <br/>
+<a href="{{deadlines.earlyregistration.url}}" > {{deadlines.earlyregistration.title}}</a>:{{deadlines.earlyregistration.date}}<br/>
+<a href="{{deadlines.lodging.url}}"           > {{deadlines.lodging.title}}          </a>:{{deadlines.lodging.date}}          <br/>
+<a href="{{deadlines.specialissue.url}}"      > {{deadlines.specialissue.title}}     </a>:{{deadlines.specialissue.date}}     <br/>
         </div>
       </div>
     </div>
