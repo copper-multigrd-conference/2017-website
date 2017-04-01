@@ -68,9 +68,10 @@ for f in files:
         fout.write(html)
 
 # copy these directories as-is to the webdir
-livedirs = ['font-awesome', 'bootstrap', 'css', 'images']
+livedirs = ['font-awesome', 'bootstrap', 'css', 'images', 'program-static']
 for d in livedirs:
-    shutil.copytree(d, os.path.join(liveweb, d))
+    if os.path.isdir(d):
+        shutil.copytree(d, os.path.join(liveweb, d))
 
 # copy these files as-is to the webdir
 # livefiles = ['robots.txt']

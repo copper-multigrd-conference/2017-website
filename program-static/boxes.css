@@ -1,0 +1,12 @@
+.box_expand {
+   position: absolute;
+   right: 5px;
+   top: 1px;
+   cursor: pointer;
+}
+.box_shrink {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   cursor: pointer;
+}
